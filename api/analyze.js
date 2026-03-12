@@ -6,20 +6,18 @@ const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
 method: "POST",
 headers: {
 "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
-"Content-Type": "application/json",
-"HTTP-Referer": "https://yourproject.vercel.app",
-"X-Title": "Tender AI"
+"Content-Type": "application/json"
 },
 body: JSON.stringify({
 model: "deepseek/deepseek-chat",
 messages: [
 {
 role: "system",
-content: "You are an expert tender analyst that extracts requirements, deadlines and summaries."
+content: "You analyze tender documents."
 },
 {
 role: "user",
-content: "Analyze this tender document and summarize it:\n" + text
+content: "Summarize this tender:\n" + text
 }
 ]
 })
